@@ -293,28 +293,6 @@ if __name__=='__main__':
 
 
 
-'''
-
---
-1
-.neirong #chapterinfo
-
-2
-.neirong #ad
-
-3 4
-.neirong div
-
-5
-.neirong div .D46CA398
-
-6 7 8 9 10 11 12
-.neirong div.D46CA398
-INDEX_FRIST_URL = 'http://www.01bzvip2.cc/' + '4/4678'
-
-http://www.01bzvip2.cc/1/1975/23718.html
-http://www.01bzvip2.cc/1/1975/23718_2.html
-http://www.01bzvip2.cc/1/1975/23718_3.html '''
 
 
 
