@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>任务下载页(轮询)</title>
+    <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <input id = "BookName">书名</input>
+    </div>
+    <div>
+        <input id="Path">保存路径</input>
+    </div>
+    <button id="create">下载</button>
+</body>
+<script>
+    $("#create").click(function () {
+        var id = $("#BookName").val();  // 任务ID
+        $.post({
+            url: "http://127.0.0.1:5000/job/" + id,
+            data:JSON.stringify({
+                    BookName:   $("#BookName").val(),
+                    Path: $("#Path").val()
+                }),
+            success: function (response) {
+                $("body").append("<p id='p" + id + "'>下载任务 " + id + " 已创建</p>");
+                var interval = setInterval(function () {
+                    $.get({
+                        url: "http://127.0.0.1:5000/job/" + id,
+                        success: function (response) {
+                            console.log(response);
+                            $("#p" + id).text("下载任务 " + id + " " + response)
+                            if (response === 'done') {
+                                clearInterval(interval);
+                            }
+                        }
+                    });
+                }, 1000);
+            }
+        });
+    });
+</script>
+</html>
