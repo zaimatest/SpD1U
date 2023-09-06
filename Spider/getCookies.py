@@ -24,9 +24,12 @@ def get_cookies_dict(BookName, Url):
     wait = WebDriverWait(browser, SELE_TIME_OUT) #超时设置：配置页面加载的最长等待时间
 
     browser.get(Url) 
-    browser.find_element(By.CSS_SELECTOR, 'input[id="password"]').send_keys('1234')
-    browser.find_element(By.CSS_SELECTOR, 'div.login a').click()
-    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[type="submit"]')))
+    try:
+        browser.find_element(By.CSS_SELECTOR, 'input[id="password"]').send_keys('1234')
+        browser.find_element(By.CSS_SELECTOR, 'div.login a').click()
+        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[type="submit"]')))
+    except:
+        logging.info('无密码')
 
     #删除元素中style属性，使搜索节点可见
     script = "document.querySelector('body div[style]').removeAttribute('style')"
