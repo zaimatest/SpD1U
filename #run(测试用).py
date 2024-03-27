@@ -1,10 +1,10 @@
 import sys
 sys.path.append('Spider')
-from spider_for_requests import run as runSpider
+from Spider.spider_for_requests import run as runSpider
 
 
 def main():
-    runSpider('何谓正邪')
+    runSpider('狩猎女格斗家')
 
 
 if __name__=='__main__':
