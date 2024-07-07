@@ -8,6 +8,7 @@ def main():
 
 
 if __name__=='__main__':
+    # 不要挂梯子，挂梯子可能过不去cf
     main()
 
 
